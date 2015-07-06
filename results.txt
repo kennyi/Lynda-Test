@@ -1,0 +1,4 @@
+There is an error with route:['Alice', 'DUB', 'abb', 'lzj', 'CDG', 'SYD', ''] cannot calculate distance
+The best route for Bob is: ['DUB', 'LHR', 'CDG', 'AMS', 'AAL', 'DUB'] which costs: €2102
+The best route for Tom is: ['LHR', 'AMS', 'SIN', 'SFO', 'DUB', 'LHR'] which costs: €28513
+The best route for Jane is: ['DUB', 'DUB', 'ARN', 'SIN', 'ARN', 'LHR', 'DUB'] which costs: €10058

@@ -1,0 +1,59 @@
+import csv
+from math import *
+
+
+# make the airport class - give constructor the values below.
+class Airport:
+    def __init__(self, airportname, cityname, countryname, code3,lat,long):
+
+        self.airport_name = airportname
+        self.city_name = cityname
+        self.country_name = countryname
+        self.airport_code = code3
+        self.latitude = lat
+        self.longitude = long
+
+    def getDistanceBetweenCoordinates(lat_1,long_1,lat_2,long_2):
+        radius_of_earth = 6373
+        θ1 = long_1 * (2*(pi)/360)
+        θ2 = long_2 * (2*(pi)/360)
+        φ1 = 90 - (lat_1 * (2*(pi)/360))
+        φ2 = 90 - (lat_2 * (2*(pi)/360))
+
+
+        distance = acos((sin(φ1))*(sin(φ2))*(cos(θ1 - θ2)) + (cos(φ1))*(cos(φ2))) * radius_of_earth
+        print("The distance between your airports is : ", end="")
+        return int(distance)
+
+#also import the distance between airports calculator
+
+    def getDistanceBetweenAirports(airport_1,airport_2):
+        if airport_1 in airportLookupDict:
+            lat_1 = airportLookupDict[airport_1].latitude
+            long_1 = airportLookupDict[airport_1].longitude
+
+
+        if airport_2 in airportLookupDict:
+            lat_2 = airportLookupDict[airport_2].latitude
+            long_2 = airportLookupDict[airport_2].longitude
+
+        return getDistanceBetweenCoordinates(lat_1,long_1,lat_2,long_2)
+
+#bring in the calculate distance from co-ordinates
+
+
+
+
+
+with open('airport.csv', 'r', encoding="UTF8") as f:
+    reader = csv.reader(f)
+    airportLookupDict = {}
+    for row in reader:
+        airportLookupDict[row[4]] = Airport(row[1], row[2],row[3], row[4],row[6],row[7])
+
+
+for key in airportLookupDict:
+     print(airportLookupDict[key].latitude, airportLookupDict[key].longitude)
+
+#Airport.getDistanceBetweenAirports("DUB","SYD")
+print(hello)
